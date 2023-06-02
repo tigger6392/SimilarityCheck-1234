@@ -13,7 +13,7 @@ const int MAX_LENGTH_SCORE = 60;
 class SimilarityCheck
 {
 public:
-    int LengthCheck(string input1, string input2)
+    int LengthCheck(const string& input1, const string& input2)
     {
         if (CheckInputStrings(input1, input2) == EXCEPTIONAL_CASES)
             return EXCEPTIONAL_CASES;
@@ -23,7 +23,7 @@ public:
     }
 
 private:
-    int CheckInputStrings(string input1, string input2)
+    int CheckInputStrings(const string& input1, const string& input2)
     {
         try
         {
@@ -64,7 +64,7 @@ private:
         }
         return false;
     }
-    int GetScoreForNormalCases(string input1, string input2)
+    int GetScoreForNormalCases(const string& input1, const string& input2)
     {
         if (input1.length() == input2.length())	return MAX_LENGTH_SCORE;
         int gap = max(input1.length(), input2.length()) -
