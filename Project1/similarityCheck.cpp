@@ -73,13 +73,17 @@ private:
         }
         return false;
     }
-    int GetLengthScoreForNormalCases(const string& input1, const string& input2)
+    int GetLengthScore(const string& input1, const string& input2)
     {
-        if (input1.length() == input2.length())	return MAX_LENGTH_SCORE;
         int gap = max(input1.length(), input2.length()) -
             min(input1.length(), input2.length());
         return MAX_LENGTH_SCORE -
             (MAX_LENGTH_SCORE * gap / min(input1.length(), input2.length()));
+    }
+    int GetLengthScoreForNormalCases(const string& input1, const string& input2)
+    {
+        if (input1.length() == input2.length())	return MAX_LENGTH_SCORE;
+        return GetLengthScore(input1, input2);
     }
     bool CheckAllDifferentChars(const string& input1, const string& input2)
     {
